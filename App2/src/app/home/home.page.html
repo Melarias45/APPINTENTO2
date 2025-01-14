@@ -10,7 +10,7 @@
   <form [formGroup]="usuario" (ngSubmit)="guardarDatos()">
     <ion-item>
       <ion-label>Nombre:</ion-label>
-      <ion-input formControlName="nombre"></ion-input>
+      <ion-input formControlName="nombre" placeholder="ingresa tu nombre"></ion-input>
     </ion-item>
 
     <ion-label color="danger"
@@ -23,19 +23,26 @@
 
     <ion-item>
       <ion-label>Email:</ion-label>
-      <ion-input formControlName="email"></ion-input>
+      <ion-input formControlName="email" placeholder="ingresa tu email"></ion-input>
     </ion-item>
 
     <ion-label color="danger" *ngIf="usuario.controls.email.errors?.['email'] && (usuario.touched || usuario.dirty)">*
-      El
-      email no es válido.</ion-label>
+      El email no es válido.</ion-label>
+
+    <ion-item>
+      <ion-label>Edad:</ion-label>
+      <ion-input formControlName="age" type="number" placeholder="000"></ion-input>
+    </ion-item>
+
+    <ion-label color="danger"
+      *ngIf="usuario.controls.age.errors?.['required'] && (usuario.touched || usuario.dirty)">*La edad es
+      obligatoria</ion-label>
 
     <p class="ion-text-center">
       <ion-button type="submit" [disabled]="!usuario.valid">Guardar</ion-button>
     </p>
+
   </form>
-  <p class="ion-padding">{{ usuario.controls.nombre.value }}</p>
-  <p class="ion-text-center">
-    <ion-button (click)="enviarFormulario()">Cambiar nombre</ion-button>
-  </p>
+  <!-- <p class="ion-padding">{{ usuario.controls.nombre.value }}</p>-->
+
 </ion-content>

@@ -22,6 +22,7 @@ export class HomePage {
   usuario = new FormGroup({
     nombre: new FormControl('', [Validators.required, Validators.minLength(4)]),
     email: new FormControl('', Validators.email),
+    age: new FormControl('', Validators.required),
   });
 
   constructor() { }
