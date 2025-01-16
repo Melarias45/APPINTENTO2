@@ -34,23 +34,25 @@
       <ion-input formControlName="age" type="number" placeholder="000"></ion-input>
     </ion-item>
 
-    <ion-label color="danger" *ngIf="usuario.controls.age.errors?.['min'] && (usuario.touched || usuario.dirty)">* La edad mínima es 18.</ion-label>
+    <ion-label color="danger" *ngIf="usuario.controls.age.errors?.['min'] && (usuario.touched || usuario.dirty)">* La
+      edad mínima es 18.</ion-label>
 
     <ion-item>
       <ion-checkbox slot="start" formControlName="aceptaTerminos"></ion-checkbox>
       <ion-label>Acepto los términos y condiciones</ion-label>
     </ion-item>
 
-    <ion-label color="danger" *ngIf="usuario.controls.aceptaTerminos.errors?.['required'] && (usuario.touched || usuario.dirty)">
+    <ion-label color="danger"
+      *ngIf="usuario.controls.aceptaTerminos.errors?.['required'] && (usuario.touched || usuario.dirty)">
       * Debes aceptar los términos y condiciones.
-    </ion-label> 
+    </ion-label>
 
     <p class="ion-text-center">
-      <ion-button type="submit" [disabled]="!usuario.valid">Guardar</ion-button>
+      <ion-button type="submit" [disabled]="!usuario.valid" (click)="alertaGuardar()">Guardar</ion-button>
     </p>
 
   </form>
-  
+
   <b> Nuevo usuario registrado con los siguientes datos: </b>
   <p class="ion-padding">Usuario: {{ usuario.controls.nombre.value }}<br>Email: {{ usuario.controls.email.value }}<br>
     Edad: {{ usuario.controls.age.value }}</p>
